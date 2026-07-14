@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CyberPhish | Scan URLs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand"><span class="dot"></span> CyberPhish</div>
+    <div class="nav-links">
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('upload') }}" class="active">Scan / Upload</a>
+      <a href="{{ url_for('report') }}">Reports</a>
+    </div>
+    <div class="nav-user">
+      {{ session.get('username', '') }}
+      <a href="{{ url_for('logout') }}" class="logout-btn">Log out</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="panel">
+      <h2>Check a Single URL</h2>
+      <form method="POST" action="{{ url_for('upload') }}">
+        <label for="single_url">URL to analyze</label>
+        <input type="text" id="single_url" name="single_url" placeholder="https://example.com/login">
+        <button type="submit" class="btn">Analyze URL</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h2>Bulk Upload (CSV or PDF)</h2>
+      <p style="color:var(--text-muted); font-size:13px; margin-top:-8px;">
+        CSV should contain one URL per row in the first column (a header row like
+        <code>url</code> is fine and will be skipped automatically). PDF uploads
+        are scanned for any URLs found in the document's text.
+      </p>
+      <form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+        <label for="csv_file">CSV or PDF file</label>
+        <input type="file" id="csv_file" name="csv_file" accept=".csv,.pdf">
+        <div id="file_name_display" style="font-size:12px; color:var(--text-muted); margin:-10px 0 14px;"></div>
+        <button type="submit" class="btn">Upload &amp; Scan</button>
+      </form>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
