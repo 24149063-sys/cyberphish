@@ -1,9 +1,0 @@
-__pycache__/
-*.pyc
-venv/
-env/
-.venv/
-database/phishing.db
-uploads/*
-!uploads/.gitkeep
-.env
