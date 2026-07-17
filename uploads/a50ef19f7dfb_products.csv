@@ -1,0 +1,11 @@
+product_id,product_name,category,price,stock_quantity,supplier,rating
+P001,Wireless Mouse,Electronics,19.99,150,TechSupply Co,4.3
+P002,Bluetooth Speaker,Electronics,45.50,75,SoundWave Inc,4.6
+P003,Yoga Mat,Fitness,25.00,200,FitGear Ltd,4.1
+P004,Stainless Water Bottle,Home,12.75,300,HydroLife,4.5
+P005,Office Chair,Furniture,150.00,40,ComfortWorks,4.2
+P006,LED Desk Lamp,Home,22.30,120,BrightHome,4.4
+P007,Running Shoes,Fitness,65.99,90,ActiveStep,4.7
+P008,Backpack,Accessories,39.99,110,UrbanCarry,4.0
+P009,Coffee Maker,Kitchen,58.20,60,BrewMasters,4.3
+P010,Notebook Set,Stationery,8.99,500,PaperTrail,4.6

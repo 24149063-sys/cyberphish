@@ -1,0 +1,208 @@
+:root {
+  --bg: #0f1420;
+  --bg-panel: #161d2e;
+  --bg-panel-2: #1c2438;
+  --border: #2a3450;
+  --text: #e7ecf7;
+  --text-muted: #8d97b3;
+  --accent: #4f8cff;
+  --accent-dark: #3468d6;
+  --danger: #ff5c72;
+  --danger-bg: #3a1420;
+  --success: #33d69f;
+  --success-bg: #103328;
+  --warning: #ffb84f;
+  --warning-bg: #3a2a10;
+  --info: #4fd0ff;
+  --info-bg: #103340;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- Auth / login page ---------- */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 20%, #1a2540 0%, #0f1420 60%);
+  padding: 20px;
+}
+
+.auth-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.auth-card h1 {
+  font-size: 22px;
+  margin: 0 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.auth-card .subtitle {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+.hint {
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ---------- Layout / navbar ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.navbar .brand .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.nav-links { display: flex; gap: 6px; align-items: center; }
+
+.nav-links a {
+  color: var(--text-muted);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.nav-links a:hover { background: var(--bg-panel-2); text-decoration: none; color: var(--text); }
+.nav-links a.active { background: var(--accent); color: white; }
+
+.nav-user { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); }
+.logout-btn { color: var(--danger); font-size: 13px; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 28px; }
+
+/* ---------- Form elements ---------- */
+label { display: block; font-size: 13px; margin-bottom: 6px; color: var(--text-muted); }
+
+input[type="text"], input[type="password"], input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+input:focus { outline: none; border-color: var(--accent); }
+
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn.btn-block { width: 100%; }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn-outline:hover { background: var(--bg-panel-2); }
+
+/* ---------- Flash messages ---------- */
+.flash { padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; }
+.flash-success { background: var(--success-bg); color: var(--success); border: 1px solid var(--success); }
+.flash-danger { background: var(--danger-bg); color: var(--danger); border: 1px solid var(--danger); }
+.flash-warning { background: var(--warning-bg); color: var(--warning); border: 1px solid var(--warning); }
+.flash-info { background: var(--info-bg); color: var(--info); border: 1px solid var(--info); }
+
+/* ---------- Cards / stats ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.stat-card .label { color: var(--text-muted); font-size: 13px; margin-bottom: 8px; }
+.stat-card .value { font-size: 30px; font-weight: 700; }
+.stat-card.phishing .value { color: var(--danger); }
+.stat-card.legit .value { color: var(--success); }
+.stat-card.total .value { color: var(--accent); }
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.panel h2 { margin-top: 0; font-size: 16px; }
+
+/* ---------- Tables ---------- */
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+th { color: var(--text-muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; }
+tr:hover td { background: var(--bg-panel-2); }
+
+.badge { padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.badge-phishing { background: var(--danger-bg); color: var(--danger); }
+.badge-legitimate { background: var(--success-bg); color: var(--success); }
+
+.url-cell { max-width: 380px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.empty-state { text-align: center; padding: 40px 20px; color: var(--text-muted); }
+
+.divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+.tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.tabs a {
+  padding: 6px 12px; border-radius: 8px; font-size: 13px;
+  border: 1px solid var(--border); color: var(--text-muted);
+}
+.tabs a.active { background: var(--accent); color: white; border-color: var(--accent); }
